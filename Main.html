@@ -5,6 +5,7 @@
         <script src="Decoy.js" type="text/javascript"></script>
         <script src="jspsych-6.1.0/jspsych.js" type="text/javascript"></script>
         <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js" type="text/javascript"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js" type="text/javascript"></script>
         <!--  
             Might be useful later (call other jsPsych functions/plug ins)
             <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js" type="text/javascript"></script>
@@ -100,6 +101,87 @@
             }
         };
 
+        var TerminateExp = {
+            type: 'html-keyboard-response',
+            stimulus: '<h3></h3>',
+            choices: jsPsych.ALL_KEYS,
+            trial_duration: 10000,
+            on_finish: function(data){
+                
+                jsPsych.pauseExperiment();
+                var fileTitle = atob(urlParams.get('userid'));
+                exportCSVFile(template, allTrialsJson['Trials'], fileTitle);
+                console.log(allTrialsJson['Trials']);
+                jsPsych.resumeExperiment();
+                //console.log("Recording results :)")
+                //PostJSON();
+                
+            }
+        };
+
+        var template = {
+            "Decoy": "", 
+            "Item": "", 
+            "Option_1": "", 
+            "Option_2": "", 
+            "Option_3": "", 
+            "Choice": ""
+        };
+
+        /*Description
+
+        */
+        function convertToCSV(objArray) {
+            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+            var str = '';
+
+            for (var i = 0; i < array.length; i++) {
+                var line = '';
+                for (var index in array[i]) {
+                    if (line != '') line += ','
+
+                    line += array[i][index];
+                }
+
+                str += line + '\r\n';
+            }	
+
+    	    return str;
+	    };
+
+        function exportCSVFile(headers, items, fileTitle) {
+            
+            if (headers) {
+                items.unshift(headers);
+            }
+
+            // Convert Object to JSON
+            var jsonObject = JSON.stringify(items);
+
+            var csv = this.convertToCSV(jsonObject);
+
+            var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            
+            if (navigator.msSaveBlob) { // IE 10+
+                navigator.msSaveBlob(blob, exportedFilenmae);
+            } else {
+                var link = document.createElement("a");
+                if (link.download !== undefined) { // feature detection
+                // Browsers that support HTML5 download attribute
+                    var url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", exportedFilenmae);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            }
+        };
+
+
         // Adding files/events to experiment timeline.
         timeline.push(welcome);
         //timeline.push(taskOrderScreen());
@@ -116,7 +198,15 @@
 </html>
 <!-- 
     Notes: 
-    - Check if we need catch trials (4 + 3 =?).
-    - Work out how to randomize position of (option A, B, and C).
-    - Same product can't be shown twice in the same block.
+    - Set up catch system (numbers) (4 + 3 =?). -> Done.
+    - Set up complementary catch system (Ask Dr. Yu). 
+        Questions: 
+        1) Approximately how many catch triasl of this type? 
+        2) Is it okay to have minimum and maximum value D1/D2 questions? 
+    - Work out how to randomize position of (option A, B, and C). -> Done
+    - Same product can't be shown twice in the same block. -> Done.
+    - Constrain possible options if phantom trial. -> Done.
+    - Let's say participant is often missing trials (no selecting any choice in the 'choice' event)
+      should I add a slide/warning or something, if participants misses more than # trials?
+    - Fix catch decoys for (decimals).
  -->
