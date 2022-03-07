@@ -2,17 +2,10 @@
 <html>
     <head>
         <title>Main</title>
-        <script src="Decoy.js" type="text/javascript"></script>
+        <script src="Demo_Decoy.js" type="text/javascript"></script>
         <script src="jspsych-6.1.0/jspsych.js" type="text/javascript"></script>
         <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js" type="text/javascript"></script>
         <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js" type="text/javascript"></script>
-        <!--  
-            Might be useful later (call other jsPsych functions/plug ins)
-            <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js" type="text/javascript"></script>
-            <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js" type="text/javascript"></script>
-            <script src="jspsych-6.1.0/plugins/jspsych-instructions.js" type="text/javascript"></script>
-            <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js" type="text/javascript"></script>
-        -->    
         <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
       </head>
       <body></body>
@@ -23,6 +16,7 @@
         var urlParams = new URLSearchParams(window.location.search);
 
         // Check function...
+        // If 'userid' === 000000000, then proceed as demo
         if (atob(urlParams.get('userid')) === "00000000"){
             btrialcountmax = 5;
             btrialcount = btrialcountmax;
@@ -31,7 +25,7 @@
 
         allTrialsJson = {"Trials": [] };
 	    var newForm = document.createElement("form"); 
-	    newForm.action="RecordResults.cgi";
+	    newForm.action="RecordResultsDemo.cgi";
 	    newForm.method="POST";
 	    newForm.id="FResponses";
 	    newForm.name="FResponses";
@@ -41,14 +35,11 @@
         // Determine coupling condition (0 = low coupling; 1 = high coupling)
         var coupling_condition = Math.floor(Math.random() * 2);
         if(coupling_condition > 0) {
-			var coupling = "Low coupling";
+			coupling = "Low coupling";
 		} else {
-            var coupling = "High coupling"; 
+            coupling = "High coupling"; 
         }
-        console.log(coupling_condition)
-        console.log("coupling condition:" + String(coupling))
 
-        // Determing phantom decoy framing (0 = Highly_desirable; 1 = Weakly_desirable; 3 = Undesirable)
         var phantom_condition = Math.floor(Math.random() * 3);
         if(phantom_condition == 0) {
             phantom_condition = "Highly_desirable";
@@ -67,6 +58,8 @@
 		    choices: jsPsych.ALL_KEYS, 
 		    trial_duration: 5000,
             on_finish: function(){
+
+                console.log("coupling condition: " + coupling)
 
                 // Capture participants demographic data
                 // and send it to 'allTrialsJson' file. 
@@ -97,7 +90,7 @@
 				document.body.classList.add('bodyOClass');
 
                 // Add decoy file to timeline.
-                Decoy(timeline); 
+                ZDecoy_demo(timeline); 
 
             }
         };
@@ -109,24 +102,26 @@
 
         var TerminateExp = {
             type: 'html-keyboard-response',
-            stimulus: '<h3>Loading... <br><br> </h3>',
+            stimulus: '<h3>Loading... <br><br></h3>',
             choices: jsPsych.ALL_KEYS,
             trial_duration: 2500,
             on_finish: function(data){
                 
-                //PostJSON();
+                //var data = JSON.stringify(allTrialsJson);
+                //console.log(data);
                 //jsPsych.pauseExperiment();
-                //data = expCSV(template, allTrialsJson['Trials']);
-                //document.getElementById("Responses").value = data;
+
+                PostJSON();
+                //jsPsych.pauseExperiment();
+                //var data = expCSV(template, allTrialsJson['Trials']);
+                //document.getElementById("Responses").value = JSON.stringify(data);
                 //document.getElementById("FResponses").submit();
                 //jsPsych.resumeExperiment();
                 
-
-                
-                jsPsych.pauseExperiment();
-                var fileTitle = atob(urlParams.get('userid'));
-                exportCSVFile(template, allTrialsJson['Trials'], fileTitle);
-                jsPsych.resumeExperiment();
+                //jsPsych.pauseExperiment();
+                //var fileTitle = atob(urlParams.get('userid'));
+                //exportCSVFile(template, allTrialsJson['Trials'], fileTitle);
+                //jsPsych.resumeExperiment();
             
                 
             }
@@ -185,9 +180,8 @@
             var jsonObject = JSON.stringify(items);
 
             var csv = this.convertToCSV(jsonObject);
-            //var csv = this.JsonToCSV(jsonObject);
 
-            var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+            var exportedFilenmae = "Demo_" + fileTitle + '.csv' || 'export.csv';
 
             var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             
@@ -208,6 +202,7 @@
             }
         };
 
+
         // Adding files/events to experiment timeline.
         timeline.push(welcome);
         //timeline.push(taskOrderScreen());
@@ -216,17 +211,16 @@
 		    timeline: timeline,
 		    default_iti: 0,
 		    on_finish: function() {
-		    
+		    //jsPsych.data.displayData();
 		
 		    }
         });
-        
       </script>
 </html>
 <!-- 
     Notes: 
     - Set up catch system (numbers) (4 + 3 =?). -> Done.
-    - Set up complementary catch system. -> Done. 
+    - Set up complementary filler catch system. -> Done.
     - Work out how to randomize position of (option A, B, and C). -> Done
     - Same product can't be shown twice in the same block. -> Done.
     - Constrain possible options if phantom trial. -> Done.

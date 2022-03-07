@@ -1,4 +1,4 @@
-function Decoy(timeline) {
+function ZDecoy_demo(timeline) {
 
     // Get counpling and phantom condition. 
     var coupling_instructions = "";        
@@ -61,10 +61,10 @@ function Decoy(timeline) {
     ["Puree machine", "Capacity (ml)", "Blending speed (Hz)"],
     ["Baby stroller", "Weight limit (lbs)", "Warranty (months)"],
     ["Clothes Steamer", "Capacity (ml)", "Pressure (g/min)"],
-    ["Air Fryer Oven", "Basket size (qt)", "<span>Max. Temperature (&#8457;)</span>"], // Might need to add special character <span></span>
+    ["Air Fryer Oven", "Basket size (qt)", "<span>Max. Temperature (&#8457;)</span>"], // Might need to add special character
     ["Mobility scooter", "Driving range (miles)", "Weight limit (lbs)"],
     ["Hearing aid", "Battery duration (hours)", "Sensitivity (Hz)"],
-    ["Walker with seat", "Weight limit (lbs)", "Warranty (years)"], // Changed shower chair -> Walker with seat
+    ["Shower chair", "Weight limit (lbs)", "Adjustable height"], // Might change 'adjustable height'
     ["Air mattress", "Height (in)", "Weight limit (lbs)"],
     ["Insect repellent", "Protection (hours)", "Size (oz)"],
     ["Massage gun", "Max force (lbs)", "Speed (rpm)"],
@@ -124,57 +124,6 @@ function Decoy(timeline) {
    [["130", "160", "130", "170", "130", "145", "135", "155", "100", "190"], ["5", "3", "6", "3", "4", "3", "4.5", "3.5", "7", "1"]],
    [["30", "35", "30", "40", "30", "32.5", "30", "35", "20", "45"], ["80", "60", "90", "60", "70", "60", "75", "65", "100", "40"]]
    ];
-
-   // Values with corrected similarity decoy
-   var cs_values_fix = [[["1150", "1850", "1160", "2100", "1150", "1500", "1050", "1950", "500", "2500"], ["9", "6", "10", "6", "7.5", "6", "9.5", "5.5", "12", "3"]],
-   [["80", "85", "80", "87", "80", "85", "80", "85", "75", "90"], ["145", "125", "155", "125", "135", "125", "150", "120", "170", "100"]],
-   [["170", "260", "170", "295", "170", "215", "150", "280", "80", "350"], ["9", "7", "10", "7", "8", "7", "10", "6", "12", "4"]],
-   [["10200", "15100", "8240", "15100", "10200", "12650", "9200", "16100", "5300", "20000"], ["9", "6", "9", "5", "7.5", "6", "9.5", "5.5", "12", "3"]],
-   [["14", "16", "14", "17", "14", "15", "13.5", "16.5", "12", "18"], ["18", "12", "20", "12", "15", "12", "19", "11", "24", "6"]],
-
-   [["80", "100", "80", "110", "80", "90", "75", "105", "60", "120"], ["11", "8", "13", "8", "9.5", "8", "12", "7", "15", "4"]],
-   [["1850", "2450", "1850", "2650", "1850", "2150", "1750", "2550", "1300", "3000"], ["2", "1", "2.5", "1", "1.7", "1", "2.3", "1", "3", "0.5"]],
-   [["16.5", "18.5", "16.5", "19.5", "16.5", "17.5", "16", "19", "14", "21"], ["55", "45", "60", "45", "50", "45", "60", "40", "70", "30"]],
-   [["1150", "1300", "1150", "1400", "1150", "1250", "1100", "1350", "1000", "1500"], ["11", "7", "12.5", "7", "9", "7", "12", "6", "15", "3"]],
-   [["10650", "11350", "10650", "11600", "10650", "11000", "10550", "11450", "10000", "12000"], ["8.5", "7.5", "9", "7.5", "8", "7.5", "9", "7", "10", "6"]],
-
-   [["110", "180", "110", "210", "110", "145", "95", "195", "40", "250"], ["26", "16", "30", "16", "21", "16", "28", "14", "36", "6"]],
-   [["27", "33", "27", "36", "27", "30", "25.5", "35", "20", "40"], ["18", "12", "20", "12", "15", "12", "19", "11", "24", "6"]],
-   [["80", "89", "80", "93", "80", "85", "78", "91", "70", "99"], ["535", "465", "560", "465", "500", "465", "545", "455", "600", "400"]],
-   [["18", "25", "18", "28", "18", "21", "16", "27", "10", "33"], ["28", "20", "30", "20", "24", "20", "30", "18", "36", "12"]],
-   [["14500", "17500", "14500", "18500", "14500", "16000", "14100", "17900", "12000", "20000"], ["43500", "36500", "46000", "36500", "40000", "36500", "44700", "35500", "50000", "30000"]],
-   
-   [["6", "9", "6", "10", "6", "8", "5", "10", "3", "12"], ["12", "10", "16", "10", "12", "10", "15", "9", "18", "6"]],
-   [["1750", "2250", "1750", "2500", "1750", "2000", "1650", "2400", "1200", "2800"], ["1650", "1450", "1750", "1450", "1550", "1450", "1700", "1400", "1900", "1200"]],
-   [["22", "31", "22", "35", "22", "27", "20", "33", "13", "40"], ["11", "7", "13", "7", "9", "7", "12", "6", "16", "2"]],
-   [["58", "74", "58", "80", "58", "65", "55", "77", "42", "90"], ["47", "33", "52", "33", "40", "33", "49", "31", "60", "20"]],
-   [["9", "10", "9", "11", "9", "9.5", "8.3", "10.6", "7", "12"], ["20", "16", "22", "16", "18", "16", "8", "11", "24", "12"]],
-   
-   [["45", "65", "45", "75", "45", "55", "40", "70", "20", "90"], ["570", "430", "620", "430", "500", "430", "590", "410", "700", "300"]],
-   [["120", "140", "120", "150", "120", "130", "115", "145", "100", "160"], ["35", "25", "40", "25", "30", "25", "37", "23", "45", "15"]],
-   [["8", "12", "8", "13.5", "8", "10", "7", "13", "4", "16"], ["10", "8", "11", "8", "9", "8", "10.5", "7.5", "12", "6"]],
-   [["400", "700", "400", "820", "400", "550", "350", "750", "100", "1000"], ["300", "210", "340", "210", "260", "210", "320", "190", "390", "120"]],
-   [["60", "80", "60", "90", "60", "70", "55", "85", "40", "100"], ["24", "18", "26", "18", "21", "18", "25", "16", "30", "12"]],
-   
-   [["470", "680", "470", "770", "470", "575", "420", "720", "250", "900"], ["65", "45", "75", "45", "55", "45", "70", "40", "90", "20"]],
-   [["6", "9", "6", "10", "6", "7.5", "5", "10", "3", "12"], ["420", "360", "440", "360", "390", "360", "430", "350", "480", "300"]],
-   [["15", "20", "15", "22", "15", "17.5", "14", "21", "10", "25"], ["260", "230", "280", "230", "250", "230", "270", "220", "300", "200"]],
-   [["40", "50", "40", "55", "40", "45", "38", "52", "30", "60"], ["5300", "4500", "5600", "4500", "4900", "4500", "5400", "4400", "6000", "3800"]],
-   [["250", "300", "250", "320", "250", "275", "240", "310", "200", "350"], ["12", "8", "14", "8", "10", "8", "13", "7", "16", "4"]],
-   
-   [["13", "17", "13", "19", "13", "15", "12", "18", "9", "21"], ["700", "500", "800", "500", "600", "500", "750", "450", "900", "300"]],
-   [["6", "9", "6", "10", "6", "7.5", "5", "10", "3", "12"], ["11", "7", "12.5", "7", "9", "7", "12", "6", "15", "3"]],
-   [["18", "24", "18", "26", "18", "17", "25", "23", "12", "30"], ["3100", "2700", "3300", "2700", "2900", "2700", "3200", "2600", "3500", "2300"]],
-   [["5", "7", "5", "8", "5", "6", "4.5", "7.5", "3", "9"], ["18", "12", "20", "12", "15", "12", "20", "10", "24", "6"]],
-   [["2200", "2600", "2200", "2750", "2200", "2400", "2100", "2700", "1800", "3000"], ["2.5", "2", "2.7", "2", "2.2", "2", "2.6", "1.9", "3", "1.5"]],
-   
-   [["11", "16", "11", "18", "11", "13.5", "10", "17", "6", "21"], ["9", "6", "10", "6", "7.5", "6", "9.5", "5.5", "12", "3"]],
-   [["80", "100", "80", "110", "80", "90", "70", "110", "60", "120"], ["7", "5", "8", "5", "6", "5", "7.5", "4.5", "9", "3"]],
-   [["1000", "1400", "1000", "1550", "1000", "1200", "900", "1500", "600", "1800"], ["4.5", "2.5", "5", "2.5", "3.5", "2.5", "5", "2", "6", "1"]],
-   [["130", "160", "130", "170", "130", "145", "120", "170", "100", "190"], ["5", "3", "6", "3", "4", "3", "6", "2", "7", "1"]],
-   [["30", "35", "30", "40", "30", "32.5", "25", "40", "20", "45"], ["80", "60", "90", "60", "70", "60", "85", "55", "100", "40"]]
-   ];
-   cs_values = cs_values_fix;
 
    var practice_stim_names = [["Power bank", "Power (mAh)", "Life expectancy (uses)"],
    ["Wireless speaker", "Volume range (dB)", "Battery (hours)"],
@@ -240,7 +189,7 @@ function Decoy(timeline) {
    var countdown_A = 0;
    var counter1 = 0;  
     
-   var counter_break_1 = 120;
+   var counter_break_1 = 30;
    var counter_break_2 = 120;
    var counter_break_3 = 120;
    var counter2 = 0;
@@ -580,63 +529,63 @@ function Decoy(timeline) {
         
         if((target == "A") && (decoy == "P")){
 
-            //console.log("P_A");
+            console.log("P_A");
             options[2][0] = "P_A"
             options[2][1] = cs_values[stimulus][0][2];
             options[2][2] = cs_values[stimulus][1][2];
 
         } else if ((target == "B") && (decoy == "P")) {
 
-            //console.log("P_B");
+            console.log("P_B");
             options[2][0] = "P_B"
             options[2][1] = cs_values[stimulus][0][3];
             options[2][2] = cs_values[stimulus][1][3];
 
         } else if ((target == "A") && (decoy == "A")) {
 
-            //console.log("A_A");
+            console.log("A_A");
             options[2][0] = "A_A"
             options[2][1] = cs_values[stimulus][0][4];
             options[2][2] = cs_values[stimulus][1][4];
 
         } else if ((target == "B") && (decoy == "A")) {
 
-            //console.log("A_B");
+            console.log("A_B");
             options[2][0] = "A_B"
             options[2][1] = cs_values[stimulus][0][5];
             options[2][2] = cs_values[stimulus][1][5];
 
         } else if ((target == "A") && (decoy == "S")) {
 
-            //console.log("S_A");
+            console.log("S_A");
             options[2][0] = "S_A"
             options[2][1] = cs_values[stimulus][0][6];
             options[2][2] = cs_values[stimulus][1][6];
 
         } else if ((target == "B") && (decoy == "S")) {
 
-            //console.log("S_B");
+            console.log("S_B");
             options[2][0] = "S_B"
             options[2][1] = cs_values[stimulus][0][7];
             options[2][2] = cs_values[stimulus][1][7];
 
         } else if ((target == "A") && (decoy == "C")) {
 
-            //console.log("C_A");
+            console.log("C_A");
             options[2][0] = "C_A"
             options[2][1] = cs_values[stimulus][0][8];
             options[2][2] = cs_values[stimulus][1][8];
 
         } else if ((target == "B") && (decoy == "C")) {
 
-            //console.log("C_B");
+            console.log("C_B");
             options[2][0] = "C_B"
             options[2][1] = cs_values[stimulus][0][9];
             options[2][2] = cs_values[stimulus][1][9];
 
         } else if (decoy == "F"){
            
-            //console.log("F");
+            console.log("F");
             options[0][0] = "A"  
             options[0][1] =  demo_fillers_cs[stimulus][0][0];
             options[0][2] =  demo_fillers_cs[stimulus][1][0];
@@ -648,6 +597,7 @@ function Decoy(timeline) {
             options[2][0] = "C"
             options[2][1] = demo_fillers_cs[stimulus][0][2];
             options[2][2] = demo_fillers_cs[stimulus][1][2];
+            
             
         } else {
             console.log("ERROR in 'getOptions'");
@@ -674,43 +624,45 @@ function Decoy(timeline) {
 
         var banners = ["", "", ""];
 
+        var phantom_ints = "Discontinued"
+
         if(decoy == "P"){
 
             if((optionA.position == "P_A" && phantom_ints == "Out of stock") || (optionA.position == "P_B" && phantom_ints == "Out of stock")) {
-
-                banners[0] = "<h2 style='position:absolute;top:10px;left:102px;height:350px;font-size:55px;font-weight:100px;line-height:1.0;letter-spacing:3px;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</h2>" 
+             
+                banners[0] = "<p style='position:absolute;top:30%;right:22%;height:30%;width:80%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionB.position == "P_A" && phantom_ints == "Out of stock") || (optionB.position == "P_B" && phantom_ints == "Out of stock")) {
 
-                banners[1] = "<h2 style='position:absolute;top:10px;left:102px;height:350px;font-size:55px;font-weight:100px;line-height:1.0;letter-spacing:3px;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</h2>" 
+                banners[1] = "<p style='position:absolute;top:30%;right:22%;height:30%;width:80%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionC.position == "P_A" && phantom_ints == "Out of stock") || (optionC.position == "P_B" && phantom_ints == "Out of stock")) {
 
-                banners[2] = "<h2 style='position:absolute;top:10px;left:102px;height:350px;font-size:55px;font-weight:100px;line-height:1.0;letter-spacing:3px;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</h2>" 
+                banners[2] = "<p style='position:absolute;top:30%;right:22%;height:30%;width:80%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionA.position == "P_A" && phantom_ints == "Delayed shipping") || (optionA.position == "P_B" && phantom_ints == "Delayed shipping")) {
 
-                banners[0] = "<h2 style='position:absolute;top:10px;left:68px;height:350px;font-size:60px;font-weight:100px;line-height:1.0;letter-spacing:2.5px;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</h2>" 
+                banners[0] = "<p style='position:absolute;top:17%;left:0%;height:40%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionB.position == "P_A" && phantom_ints == "Delayed shipping") || (optionB.position == "P_B" && phantom_ints == "Delayed shipping")) {
 
-                banners[1] = "<h2 style='position:absolute;top:10px;left:68px;height:350px;font-size:60px;font-weight:100px;line-height:1.0;letter-spacing:2.5px;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</h2>" 
+                banners[1] = "<p style='position:absolute;top:17%;left:0%;height:40%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionC.position == "P_A" && phantom_ints == "Delayed shipping") || (optionC.position == "P_B" && phantom_ints == "Delayed shipping")) {
 
-                banners[2] = "<h2 style='position:absolute;top:10px;left:68px;height:350px;font-size:60px;font-weight:100px;line-height:1.0;letter-spacing:2.5px;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</h2>" 
+                banners[2] = "<p style='position:absolute;top:17%;left:0%;height:40%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-75deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionA.position == "P_A" && phantom_ints == "Discontinued") || (optionA.position == "P_B" && phantom_ints == "Discontinued")) {
 
-                banners[0] = "<h2 style='position:absolute;top:38px;left:23px;height:350px;font-size:58px;font-weight:100px;line-height:1.0;letter-spacing:3px;color:#C70039;opacity: 0.2;transform: rotate(-68deg);'>" + phantom_ints + "</h2>" 
+                banners[0] = "<p style='position:absolute;top:24%;left:-22%;height:30%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-68deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionB.position == "P_A" && phantom_ints == "Discontinued") || (optionB.position == "P_B" && phantom_ints == "Discontinued")) {
 
-                banners[1] = "<h2 style='position:absolute;top:38px;left:23px;height:350px;font-size:58px;font-weight:100px;line-height:1.0;letter-spacing:3px;color:#C70039;opacity: 0.2;transform: rotate(-68deg);'>" + phantom_ints + "</h2>" 
+                banners[1] = "<p style='position:absolute;top:24%;left:-22%;height:30%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-68deg);'>" + phantom_ints + "</p>" 
 
             } else if((optionC.position == "P_A" && phantom_ints == "Discontinued") || (optionC.position == "P_B" && phantom_ints == "Discontinued")) {
 
-                banners[2] = "<h2 style='position:absolute;top:38px;left:23px;height:350px;font-size:58px;font-weight:100px;line-height:1.0;letter-spacing:3px;color:#C70039;opacity: 0.2;transform: rotate(-68deg);'>" + phantom_ints + "</h2>" 
+                banners[2] = "<p style='position:absolute;top:24%;left:-22%;height:30%;font-size:4vw;font-weight:bold;line-height:1.0;letter-spacing:1%;color:#C70039;opacity: 0.2;transform: rotate(-68deg);'>" + phantom_ints + "</p>" 
 
             }else {
                 console.log("Error in 'getPhantomBanner()")
@@ -762,11 +714,10 @@ function Decoy(timeline) {
     // Description
     function getChoiceBanner(decoy, optionA, optionB, optionC) {
 
-        var choice_banner_normal_decoy = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:1.7em;font-weight:bold;color:#478778'>Press '1', '2', or '3'</p></div>"; 
-        var choice_banner_phantom_a = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:1.7em;font-weight:bold;color:#478778'>Press '2' or '3'</p></div>";
-        var choice_banner_phantom_b = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:1.7em;font-weight:bold;color:#478778'>Press '1' or '3'</p></div>";
-        var choice_banner_phantom_c = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:1.7em;font-weight:bold;color:#478778'>Press '1' or '2'</p></div>";
-
+        var choice_banner_normal_decoy = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:2.4vw;font-weight:bold;color:#478778'>Press '1', '2', or '3'</p></div>"; 
+        var choice_banner_phantom_a = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:2.4vw;font-weight:bold;color:#478778'>Press '2' or '3'</p></div>";
+        var choice_banner_phantom_b = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:2.4vw;font-weight:bold;color:#478778'>Press '1' or '3'</p></div>";
+        var choice_banner_phantom_c = "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:2.4vw;font-weight:bold;color:#478778'>Press '1' or '2'</p></div>";
 
         if(decoy == "P"){
 
@@ -834,14 +785,15 @@ function Decoy(timeline) {
         return (Math.sqrt((-2)*Math.log(Math.random()))*Math.cos(2*Math.PI*Math.random())) * fixationSTDev + fixationMean 
     }
 
-   // Description
-   function setDecoyOptions(decoy_idx, filler_idx, stimuli_idx) {
+    // Description
+    function setDecoyOptions(decoy_idx, filler_idx, stimuli_idx) {
+
         var decoy_i = decoy_idx; 
         var filler_i = filler_idx;
         var stimuli_i = stimuli_idx;
 
         if(decoy_sequence[decoy_i] == "F") {
-            //console.log("fillerIt: " + String(filler_i));
+            console.log("fillerIt: " + String(filler_i));
             // Update item category according to sequence
             current_good.item = demo_fillers_names[filler_sequence[filler_i]][0];
             current_good.dimension_1 = demo_fillers_names[filler_sequence[filler_i]][1];
@@ -869,16 +821,14 @@ function Decoy(timeline) {
             var current_stimulus = stimuli_sequence[stimuli_i];
             console.log("current item: " + String(stimuli_sequence[stimuli_i]) + " " + String(current_good.item) + " " + String(current_decoy));
             // Check if this item has already been encountered. 
-            if(target_monitoring[current_good.item] == undefined) {
+            if(target_monitoring[current_good.item] !== undefined) {
                 // 'current_target' = 1 -> Target A
                 // 'current_target' = 0 -> Target B
                 var current_target = Math.floor(Math.random() * 2);
                 if(current_target > 0){
                     current_target = "A";
-                    target_monitoring[current_good.item] = "A";
                 } else {
                     current_target = "B";
-                    target_monitoring[current_good.item] = "B";
                 }
                 var current_options = getOptions(current_stimulus, current_target, current_decoy);
             } else {
@@ -934,7 +884,11 @@ function Decoy(timeline) {
 				"Caught": data[i].Caught,
 				"Deliberation_RT": data[i].Deliberation_time, 
                 "Choice_RT": data[i].Choice_time,
-                "Too_Slow": data[i].Too_Slow,	
+                "Too_Slow": data[i].Too_Slow,
+				//"Stimulus_Onset": (data[i].time_elapsed * 0.001 - data[i].rt * 0.001),
+				//"Actual_Response_time": data[i].time_elapsed * 0.001,
+				//"Too_Fast": (data[i].rt > 200 || data[i].rt === 0 ? 0 : 1),
+                //"Response_Time": data[i].resp_t* 0.001, //* 0.001,		
 			};
 			allTrialsJson['Trials'].push(newTrialJson);
 		}
@@ -942,6 +896,7 @@ function Decoy(timeline) {
 
     var stimuli_sequence = getStimuliSequence();
     console.log("stimuli_sequence" + String(stimuli_sequence.length) + ": " + String(stimuli_sequence));
+
 
     var decoy_sequence = getDecoySequence();
     // Display decoys sequence
@@ -951,72 +906,6 @@ function Decoy(timeline) {
     console.log("filler_sequence: " + String(filler_sequence));
 
     var practice_sequence = getPracticeSequence();
-
-    /**
-     * The following block of code filters the 'stimuli_sequence' so as to guarantee
-     * that each time the same stimulus is encountered, it is presented with the same decoy. 
-     * It does so, by basically identifying, within the random decoy sequence, when each type of decoy is encountered
-     * and then placing each stimulus in the 'stimuli_sequence' in the right place to match the corresponding decoy type.
-     * For instance: 1st encounter, vacuum compromise decoy target 'A'.
-     * 2nd encounter, vacuum compromise decoy target 'B'. 
-     */
-
-    var stim_seq = stimuli_sequence.slice(0, 40);
-    var decoy_C_holder = [];
-    var decoy_A_holder = [];
-    var decoy_P_holder = [];
-    var decoy_S_holder = [];
-    var decoy_C_counter = 0;
-    var decoy_A_counter = 0;
-    var decoy_P_counter = 0;
-    var decoy_S_counter = 0;
-    
-    var stim_sec_counter = 0;
-    
-    for(var x = 0; x < 50; x++) {
-        if(decoy_sequence[x] == "C"){
-            decoy_C_holder.push(stimuli_sequence[stim_sec_counter]);
-            stim_sec_counter++;
-        } else if(decoy_sequence[x] == "A"){
-            decoy_A_holder.push(stimuli_sequence[stim_sec_counter]);
-            stim_sec_counter++;
-        } else if(decoy_sequence[x] == "P"){
-            decoy_P_holder.push(stimuli_sequence[stim_sec_counter]);
-            stim_sec_counter++;
-        } else if(decoy_sequence[x] == "S"){
-            decoy_S_holder.push(stimuli_sequence[stim_sec_counter]);
-            stim_sec_counter++;
-        } else {
-            // Make nothing with fillers.
-        }
-    }
-    
-    decoy_C_holder = jsPsych.randomization.shuffle(decoy_C_holder);
-    decoy_A_holder = jsPsych.randomization.shuffle(decoy_A_holder);
-    decoy_P_holder = jsPsych.randomization.shuffle(decoy_P_holder);
-    decoy_S_holder = jsPsych.randomization.shuffle(decoy_S_holder);
-    
-    for(var x = 50; x < 100; x++) {
-        if(decoy_sequence[x] == "C"){
-            stim_seq.push(decoy_C_holder[decoy_C_counter]);
-            decoy_C_counter++;
-        } else if(decoy_sequence[x] == "A"){
-            stim_seq.push(decoy_A_holder[decoy_A_counter]);
-            decoy_A_counter++;
-        } else if(decoy_sequence[x] == "P"){
-            stim_seq.push(decoy_P_holder[decoy_P_counter]);
-            decoy_P_counter++;
-        } else if(decoy_sequence[x] == "S"){
-            stim_seq.push(decoy_S_holder[decoy_S_counter]);
-            decoy_S_counter++;
-        } else {
-            // Make nothing with fillers.
-        }
-    }
-    
-    console.log("stim_seq" + String(stim_seq.length) + ": " + String(stim_seq));
-    
-    stimuli_sequence = stim_seq;
 
     // Useful to manipulate keys and banners displayed in phantom decoys trials. 
     // If there is a phantom decoy in position A, participants only get choices 'B' and 'C'.
@@ -1073,7 +962,7 @@ function Decoy(timeline) {
             stimulus: "<div style='position:absolute;top:30%;width:65%;display:table;left:17.5%;'><p style='display:table-cell;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:justify;'>" +
                 "Your task is to select the item you are most likely to purchase among the options, all else being equal (such as price). " +
                 phantom_instructions + " At the end of the survey/experiment, you will be entered into a lottery to receive one of your chosen items."+
-                " So consider your choices carefully." + "</p></div>" +
+                "So consider your choices carefully." + "</p></div>" +
                 "<div style='position:absolute;top:85%;width:100%;display:table;left:0;'><p style='display:table-cell;font-size:1.4em;font-weight:bold;'>"+
 			    "Press " + "<span style='font-size: 25pt; font-weight: bold'>&#8592;</span>" + " to go back or press " + "<span style='font-size: 25pt; font-weight: bold'>&#8594;</span>" + " to continue.</p></div>",
             choices: [39, 37],
@@ -1121,7 +1010,7 @@ function Decoy(timeline) {
                 jsPsych.addNodeToEndOfTimeline(InstructionScreen4(), jsPsych.resumeExperiment);
             } else {
                 jsPsych.addNodeToEndOfTimeline(practiceLoop, jsPsych.resumeExperiment);
-            }         
+            }       
 		}
     };
 
@@ -1148,9 +1037,10 @@ function Decoy(timeline) {
             "<div style='position:absolute;top:620px;width:100%;display:table;left:0;'><p style='display:table-cell;font-size:1.4em;font-weight:bold;'>"+
             String(counter1) + "</p></div>"},
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 1000, 
+		trial_duration: 1000,
 		on_finish: function(){
-					
+				//jsPsych.pauseExperiment();
+				//jsPsych.addNodeToEndOfTimeline(mainLoop, jsPsych.resumeExperiment);		
 		}
 	};
 
@@ -1161,11 +1051,11 @@ function Decoy(timeline) {
             counter2 = getTime(counter_break_1);
 
             return "<p style='font-size:1.5em;font-weight:bold;'>" + 
-            "Break 1 of 3.</p>" + "<div style='position:absolute;top:620px;width:100%;display:table;left:0;'>" + 
+            "Break</p>" + "<div style='position:absolute;top:620px;width:100%;display:table;left:0;'>" + 
             "<p style='display:table-cell;font-size:1.4em;font-weight:bold;'>" + String(counter2) + "</p></div>"
         },
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 1000, 
+		trial_duration: 100, //1000 
 		on_finish: function(){
 		
 		}
@@ -1184,7 +1074,7 @@ function Decoy(timeline) {
             String(counter2) + "</p></div>" 
             },
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 1000, 
+		trial_duration: 100, //1000
 		on_finish: function(){
 		
 		}
@@ -1203,7 +1093,7 @@ function Decoy(timeline) {
             String(counter2) + "</p></div>" 
             },
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 1000, 
+		trial_duration: 100, //1000
 		on_finish: function(){
 		
 		}
@@ -1252,7 +1142,11 @@ function Decoy(timeline) {
 
             var phantom_banner_A = phantom_banner[0];
             var phantom_banner_B = phantom_banner[1];
-            var phantom_banner_C = phantom_banner[2];       
+            var phantom_banner_C = phantom_banner[2];
+
+            //phantom_banner_A = phantom_banner[0];
+            //phantom_banner_B = phantom_banner[1];
+            //phantom_banner_C = phantom_banner[2];            
             
             return "<div style='position:absolute;top:6%;height:90%;width:100%;display:table;left:0;'>" +
             "<div style='position:absolute;top:4%;width:50%;display:table;left:27%;'>" +
@@ -1288,7 +1182,7 @@ function Decoy(timeline) {
             "Wait" + "</p></div>" 
 		},
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 10000, 
+		trial_duration: 100, //10000,
 		on_finish: function(data){
 
             // Get choice banner.
@@ -1356,6 +1250,7 @@ function Decoy(timeline) {
                 }
                 return choosing
             },
+            trial_duration: 100,
 		    on_finish: function(data){
 
                 data.task = 1; 
@@ -1396,7 +1291,7 @@ function Decoy(timeline) {
                     data.Caught = "NaN";
                 }
 
-                //console.log("decoyIt: " + String(decoyIt));
+                console.log("decoyIt: " + String(decoyIt));
 
                 data.Deliberation_time = 10000;
                 data.Choice_time = data.rt; 
@@ -1447,31 +1342,11 @@ function Decoy(timeline) {
         type: 'html-keyboard-response',
         stimulus: '<h1 style="font-size:2rem;">Too slow!</h1>',
         choices: jsPsych.NO_KEYS,
-		trial_duration: 2000, 
+		trial_duration: 2000, // + normalRand()
         on_finish: function(data){
             
 		}	
     };
-
-    var blankPage = {
-		type: 'html-keyboard-response',
-		stimulus: '',
-		choices: jsPsych.NO_KEYS,
-		trial_duration: normalRand(), 
-
-        on_finish: function(data){         
-            
-            jsPsych.pauseExperiment();
-            jsPsych.endCurrentTimeline();
-            
-            //jsPsych.addNodeToEndOfTimeline(counter_loop_break_1, jsPsych.resumeExperiment);
-            timeline.push(counter_loop_break_1);
-            jsPsych.resumeExperiment(); 
-            
-         
-        }
-
-	}
 
     /**Description: catchStimuliNums
      * 
@@ -1522,6 +1397,7 @@ function Decoy(timeline) {
     }
 
     
+    
     // Created variable to test different settings/displays. 
     var phantom_tester = {
 		type: "html-keyboard-response",
@@ -1538,9 +1414,9 @@ function Decoy(timeline) {
             // Usin a (-1) because in 'presentation' added 1 to advance through trials. 
             
             var decoyType = "P";
-            var optionA = {position: "P_A", dimension_1: "10", dimension_2: "20"};
-            var optionB = {position: "B", dimension_1: "10", dimension_2: "20"};
-            var optionC = {position: "A", dimension_1: "10", dimension_2: "20"};
+            var optionA = {position: "B", dimension_1: "10", dimension_2: "20"};
+            var optionB = {position: "A", dimension_1: "10", dimension_2: "20"};
+            var optionC = {position: "P_A", dimension_1: "10", dimension_2: "20"};
             
             phantom_banner = getPhantomBanner(decoyType, optionA, optionB, optionC)
 
@@ -1552,40 +1428,41 @@ function Decoy(timeline) {
             
             // Identify phantom (option1, 2, or 3).
             
-            return "<div style='position:absolute;top:6%;width:100%;display:table;left:0;'>" +
-
-                "<div style='position:absolute;top:6%;width:50%;display:table;left:27%;'>" +
-                "<p style='display:table-cell;color:#002AA5;font-size:2em;font-weight:bold;line-height:1.5'>" +
+            return "<div style='position:absolute;top:6%;height:90%;width:100%;display:table;left:0;'>" +
+                "<div style='position:absolute;top:4%;width:50%;display:table;left:27%;'>" +
+                "<p style='display:table-cell;color:#002AA5;font-size:3vw;font-weight:bold;line-height:1.5'>" +
 			    "" + item_cat.item + "</p></div>" +
 
-                "<div style='position:absolute;top:210px;width:250px;height:135px;display:table;left:4%;border: 3px solid black;'>" +
-                "<p style='position:absolute;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:justify'>" +
+                "<div style='position:absolute;top:34%;width:15%;height:20%;display:table;left:5%;border: 3px solid black'>" +
+                "<p style='position:absolute;font-size:2vw;font-weight:bold;line-height:1.4;text-align:left'>" +
                 item_cat.dimension_1 + ":</p></div>" +
-                "<div style='position:absolute;top:385px;width:250px;height:135px;display:table;left:4%;border: 3px solid black;'>" +
-                "<p style='position:absolute;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:justify'>" +
+                "<div style='position:absolute;top:61%;width:15%;height:20%;display:table;left:5%;border: 3px solid black'>" +
+                "<p style='position:absolute;font-size:2vw;font-weight:bold;line-height:1.4;text-align:left'>" +
                 item_cat.dimension_2 + ":</p></div>" + 
 
-                "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:26%;border: 3px solid black;border-radius: 25px;'>"+
+                "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:26%;border: 3px solid black;border-radius: 25px;'>" +
                 phantom_banner_A + 
-                "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 1" + 
-                "<br><br><br>" + option_A.dimension_1 + 
-                "<br><br><br><br><br>" + option_A.dimension_2 + "</p></div>" +
+                "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 1" + 
+                "<br><br><br>" + optionA.dimension_1 + 
+                "<br><br><br><br><br>" + optionA.dimension_2 + "</p></div>" +
 
-                "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:51.5%;border: 3px solid black;border-radius: 25px;'>"+
+                "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:51.5%;border: 3px solid black;border-radius: 25px;'>"+
                 phantom_banner_B + 
-                "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 2" + 
-                "<br><br><br>" + option_B.dimension_1 + 
-                "<br><br><br><br><br>" + option_B.dimension_2 + "</p></div>" +
+                "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 2" + 
+                "<br><br><br>" + optionB.dimension_1 + 
+                "<br><br><br><br><br>" + optionB.dimension_2 + "</p></div>" +
 
-                "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:76%;border: 3px solid black;border-radius: 25px;'>"+
+                "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:76%;border: 3px solid black;border-radius: 25px;'>"+
                 phantom_banner_C + 
-                "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 3" + 
-                "<br><br><br>" + option_C.dimension_1 + 
-                "<br><br><br><br><br>" + option_C.dimension_2 + "</p></div>" +
-            "</div>" 
+                "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 3" + 
+                "<br><br><br>" + optionC.dimension_1 + 
+                "<br><br><br><br><br>" + optionC.dimension_2 + "</p></div>" +
+                "</div>" +
+                "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:2.4vw;font-weight:bold;color:#DC143C'>" +
+			    "Wait" + "</p></div>" 
 		},
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 20000,
+		//trial_duration: 20000,
 		on_finish: function(data){
 		},
     };
@@ -1612,41 +1489,39 @@ function Decoy(timeline) {
             option_C.dimension_1 = current_options[2][1];
             option_C.dimension_2 = current_options[2][2];
 
-            return "<div style='position:absolute;top:6%;height:90%;width:100%;display:table;left:0;'>" +
-            "<div style='position:absolute;top:4%;width:50%;display:table;left:27%;'>" +
-            "<p style='display:table-cell;color:#002AA5;font-size:3vw;font-weight:bold;line-height:1.5'>" +
-            "" + current_good.item + "</p></div>" +
+            return "<div style='position:absolute;top:6%;width:100%;display:table;left:0;'>" +
+                "<div style='position:absolute;top:6%;width:50%;display:table;left:27%;'>" +
+                "<p style='display:table-cell;color:#002AA5;font-size:2em;font-weight:bold;line-height:1.5'>" +
+			    "" + current_good.item + "</p></div>" +
 
-            "<div style='position:absolute;top:34%;width:15%;height:20%;display:table;left:5%;'>" +
-            "<p style='position:absolute;font-size:2vw;font-weight:bold;line-height:1.4;text-align:left'>" +
-            current_good.dimension_1 + ":</p></div>" +
-            "<div style='position:absolute;top:61%;width:15%;height:20%;display:table;left:5%;'>" +
-            "<p style='position:absolute;font-size:2vw;font-weight:bold;line-height:1.4;text-align:left'>" +
-            current_good.dimension_2 + ":</p></div>" + 
+                "<div style='position:absolute;top:210px;width:240px;height:130px;display:table;left:5%;'>" +
+                "<p style='position:absolute;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:left'>" +
+                current_good.dimension_1 + ":</p></div>" +
+                "<div style='position:absolute;top:385px;width:240px;height:130px;display:table;left:5%;'>" +
+                "<p style='position:absolute;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:left'>" +
+                current_good.dimension_2 + ":</p></div>" + 
 
-            "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:26%;border: 3px solid black;border-radius: 25px;'>" +
-            //phantom_banner_A + 
-            "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 1" + 
-            "<br><br><br>" + option_A.dimension_1 + 
-            "<br><br><br><br><br>" + option_A.dimension_2 + "</p></div>" +
+                "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:26%;border: 3px solid black;border-radius: 25px;'>"+
+                "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 1" + 
+                "<br><br><br>" + option_A.dimension_1 + 
+                "<br><br><br><br><br>" + option_A.dimension_2 + "</p></div>" +
 
-            "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:51.5%;border: 3px solid black;border-radius: 25px;'>"+
-            //phantom_banner_B + 
-            "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 2" + 
-            "<br><br><br>" + option_B.dimension_1 + 
-            "<br><br><br><br><br>" + option_B.dimension_2 + "</p></div>" +
+                "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:51.5%;border: 3px solid black;border-radius: 25px;'>"+
+                "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 2" + 
+                "<br><br><br>" + option_B.dimension_1 + 
+                "<br><br><br><br><br>" + option_B.dimension_2 + "</p></div>" +
 
-            "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:76%;border: 3px solid black;border-radius: 25px;'>"+
-            //phantom_banner_C + 
-            "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 3" + 
-            "<br><br><br>" + option_C.dimension_1 + 
-            "<br><br><br><br><br>" + option_C.dimension_2 + "</p></div>" +
-            "</div>" +
-            "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:2.4vw;font-weight:bold;color:#DC143C'>" +
-            "Wait" + "</p></div>" 
+                "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:76%;border: 3px solid black;border-radius: 25px;'>"+
+                "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 3" + 
+                "<br><br><br>" + option_C.dimension_1 + 
+                "<br><br><br><br><br>" + option_C.dimension_2 + "</p></div>" +
+                "</div>" +
+                "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:1.7em;font-weight:bold;color:#DC143C'>" +
+			    "Wait" + "</p></div>" 
+
         },
 		choices: jsPsych.NO_KEYS,
-		trial_duration: 8000, 
+		trial_duration: 8000, //change back to -> 8000; for final version,
 		on_finish: function(data){
             //jsPsych.pauseExperiment();
 			//jsPsych.addNodeToEndOfTimeline(practice_choice, jsPsych.resumeExperiment); 
@@ -1656,40 +1531,39 @@ function Decoy(timeline) {
     var practice_choice = {
 		type: "html-keyboard-response",
 		stimulus: function(){
-            return "<div style='position:absolute;top:6%;height:90%;width:100%;display:table;left:0;'>" +
-            "<div style='position:absolute;top:4%;width:50%;display:table;left:27%;'>" +
-            "<p style='display:table-cell;color:#002AA5;font-size:3vw;font-weight:bold;line-height:1.5'>" +
+
+            return "<div style='position:absolute;top:6%;width:100%;display:table;left:0;'>" +
+            "<div style='position:absolute;top:6%;width:50%;display:table;left:27%;'>" +
+            "<p style='display:table-cell;color:#002AA5;font-size:2em;font-weight:bold;line-height:1.5'>" +
             "" + current_good.item + "</p></div>" +
 
-            "<div style='position:absolute;top:34%;width:15%;height:20%;display:table;left:5%;'>" +
-            "<p style='position:absolute;font-size:2vw;font-weight:bold;line-height:1.4;text-align:left'>" +
+            "<div style='position:absolute;top:210px;width:240px;height:130px;display:table;left:5%;'>" +
+            "<p style='position:absolute;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:left'>" +
             current_good.dimension_1 + ":</p></div>" +
-            "<div style='position:absolute;top:61%;width:15%;height:20%;display:table;left:5%;'>" +
-            "<p style='position:absolute;font-size:2vw;font-weight:bold;line-height:1.4;text-align:left'>" +
+            "<div style='position:absolute;top:385px;width:240px;height:130px;display:table;left:5%;'>" +
+            "<p style='position:absolute;font-size:1.5em;font-weight:bold;line-height:1.4;text-align:left'>" +
             current_good.dimension_2 + ":</p></div>" + 
 
-            "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:26%;border: 3px solid black;border-radius: 25px;'>" +
-            //phantom_banner_A + 
-            "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 1" + 
+            "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:26%;border: 3px solid black;border-radius: 25px;'>"+
+            "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 1" + 
             "<br><br><br>" + option_A.dimension_1 + 
             "<br><br><br><br><br>" + option_A.dimension_2 + "</p></div>" +
 
-            "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:51.5%;border: 3px solid black;border-radius: 25px;'>"+
-            //phantom_banner_B + 
-            "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 2" + 
+            "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:51.5%;border: 3px solid black;border-radius: 25px;'>"+
+            "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 2" + 
             "<br><br><br>" + option_B.dimension_1 + 
             "<br><br><br><br><br>" + option_B.dimension_2 + "</p></div>" +
 
-            "<div style='position:absolute;top:16%;width:15%;height:66%;display:table;left:76%;border: 3px solid black;border-radius: 25px;'>"+
-            //phantom_banner_C + 
-            "<p style='position:absolute;top:5px;right:22%;font-size:2vw;font-weight:bold;line-height:1.4'>" + "Option 3" + 
+            "<div style='position:absolute;top:100px;width:200px;height:420px;display:table;left:76%;border: 3px solid black;border-radius: 25px;'>"+
+            "<p style='position:absolute;top:5px;right:47.5px;font-size:1.5em;font-weight:bold;line-height:1.4'>" + "Option 3" + 
             "<br><br><br>" + option_C.dimension_1 + 
             "<br><br><br><br><br>" + option_C.dimension_2 + "</p></div>" +
             "</div>" +
             "<div style='position:absolute;bottom:9%;width:50%;display:table;left:27%;'><p style='display:table-cell;font-size:1.7em;font-weight:bold;color:#478778'>" +
 			"Press '1', '2', or '3'" + "</p></div>" 
 		},
-		choices: [49, 50, 51], 
+		choices: [49, 50, 51], //a=65, b=66, c=67,
+		//trial_duration: 2000,
 		on_finish: function(data){
 
             practiceIt++;
@@ -1741,7 +1615,7 @@ function Decoy(timeline) {
                 return false;
             }    
         }
-    };
+    }
 
     var ifMainStimuli = {
         timeline: [deliberation, choice], 
@@ -1786,6 +1660,8 @@ function Decoy(timeline) {
     var ifTooSlow = {
         timeline: [too_Slow_Fixation], 
         conditional_function: function() {
+
+            //console.log("Too_slow: " + String(jsPsych.data.get().filter({Stage: "Choice"}).last(1).values()[0].Too_Slow));
             if(jsPsych.data.get().filter({Stage: "Choice"}).last(1).values()[0].Too_Slow === 1) {
                 return true; 
             } else {
@@ -1822,8 +1698,9 @@ function Decoy(timeline) {
               }
         }
     };
+ 
 
-   /** Description: mainLoop#
+  /** Description: mainLoop#
    * Why have 4 'mainLoop' variables? 
    * I initially tried to use 'ifBreak' variables in the mainLoop. These would check whether 'mainIt' matched (25, 50, 75)
    * and detonate a 2 min break which employed an additional 'loop_function'. Bascially, I was trying to nest a loop in a loop.
@@ -1831,35 +1708,35 @@ function Decoy(timeline) {
    * 'loop_function' before starting a new one, was the only one that worked.
    * 
    */
-    
-    var practiceLoop = {
+
+   var practiceLoop = {
         timeline: [ifPracticeStimuli, ifFixation, ifTooSlowPractice], 
         loop_function: function() {
+        
+        // In the case a participants goes through 5 unsuccessful practice trials
+        // this line of code will reset the practice_sequence.
+        if(practiceIt >= 4) {
+            practiceIt = 0;
+            }
 
-            // In the case a participants goes through 5 unsuccessful practice trials
-            // this line of code will reset the practice_sequence.
-            if(practiceIt >= 4) {
-                practiceIt = 0;
-            }
-            
-            if(practice_rt >= 2000) {
-                return true;
-            } else {
-                jsPsych.pauseExperiment();
-				jsPsych.addNodeToEndOfTimeline(countdown_one_start(), jsPsych.resumeExperiment); 
-                return false;
-            }
+        if(practice_rt >= 2000) {
+            return true;
+        } else {
+            jsPsych.pauseExperiment();
+            jsPsych.addNodeToEndOfTimeline(countdown_one_start(), jsPsych.resumeExperiment); 
+            return false;
+        }
 
         }
     };
 
     var mainLoop1 = {
-        timeline: [ifMainStimuli, ifFixation, ifTooSlow, ifCatch_Nums], 
+        timeline: [ifMainStimuli, ifFixation], //, ifTooSlow, ifCatch_Nums 
         loop_function: function(){
             mainIt++; 
             catchCounterNums++;
             catchCounterDecoys++;
-            if (mainIt < 26){ // Number of choices.
+            if (mainIt < 6){ 
 
                 return true;
 
@@ -1873,18 +1750,20 @@ function Decoy(timeline) {
     };
 
     var mainLoop2 = {
-        timeline: [ifMainStimuli, ifFixation, ifTooSlow, ifCatch_Nums], 
+        timeline: [ifMainStimuli, ifFixation], //, ifTooSlow, ifCatch_Nums 
         loop_function: function(){
             mainIt++; 
             catchCounterNums++;
             catchCounterDecoys++;
-            if (mainIt < 51){ 
+            if (mainIt < 11){ 
 
                 return true;
 
             } else {
                 jsPsych.pauseExperiment();
-				jsPsych.addNodeToEndOfTimeline(counter_loop_break_2, jsPsych.resumeExperiment);
+                var all_data = jsPsych.data.get().filter({task: 1}).values();
+                formatData(all_data);
+				jsPsych.addNodeToEndOfTimeline(TerminateExp, jsPsych.resumeExperiment);
                 return false;
             }
         }
@@ -1892,7 +1771,7 @@ function Decoy(timeline) {
     };
 
     var mainLoop3 = {
-        timeline: [ifMainStimuli, ifFixation, ifTooSlow, ifCatch_Nums], 
+        timeline: [ifMainStimuli, ifCatch_Nums], 
         loop_function: function(){
             mainIt++; 
             catchCounterNums++;
@@ -1913,7 +1792,7 @@ function Decoy(timeline) {
     };
 
     var mainLoop4 = {
-        timeline: [ifMainStimuli, ifFixation, ifTooSlow, ifCatch_Nums], 
+        timeline: [ifMainStimuli, ifCatch_Nums], 
         loop_function: function(){
             mainIt++; 
             catchCounterNums++;
@@ -1925,7 +1804,7 @@ function Decoy(timeline) {
             } else {
 
                 jsPsych.pauseExperiment();
-                var all_data = jsPsych.data.get().filter({Stage: "Choice"}).values(); 
+                var all_data = jsPsych.data.get().filter({task: 1}).values();
                 formatData(all_data);
 				jsPsych.addNodeToEndOfTimeline(TerminateExp, jsPsych.resumeExperiment);
                 
@@ -1951,6 +1830,7 @@ function Decoy(timeline) {
     };
     
     var counter_loop_break_1 = {
+    
         timeline: [countdown_break1], 
         loop_function: function() {
             if(counter_break_1 != 0) {
@@ -2008,8 +1888,7 @@ function Decoy(timeline) {
     //option_C.dimension_2 = 3.2;
 
     //jsPsych.addNodeToEndOfTimeline(phantom_tester, jsPsych.resumeExperiment);
-     
-    jsPsych.addNodeToEndOfTimeline(InstructionScreen(), jsPsych.resumeExperiment);
     
+    jsPsych.addNodeToEndOfTimeline(InstructionScreen(), jsPsych.resumeExperiment);
 
 }

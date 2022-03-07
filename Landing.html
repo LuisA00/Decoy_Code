@@ -29,14 +29,15 @@
 	document.getElementById('consent').onclick = function(){
 	var urlParams = new URLSearchParams(window.location.search);
 	
-	var newurl = "";
+	var newurl = "Participants_info.html";
 	
+	/*
 	if (!urlParams.get('sc')){
 		newurl = "Participants_Info.html?sc=" + "Lab_" + String(Math.floor(Math.random()*100000+1));
 	} else {
 		newurl = "Participants_Info.html?sc=" + urlParams.get('sc');
 	}
-
+	*/
 	if(document.getElementById('consent').checked==true) 
 		{ window.location.href = newurl};
 	};

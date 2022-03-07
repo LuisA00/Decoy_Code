@@ -83,6 +83,18 @@
 									<div style="display:table-row;width:100%;text-align:center;">
 										<input type="text" name="ethnicity" id="ethnicity" style="display:none;"/>
 									</div>
+									<!-- 
+									<div style="display:table-row;width:100%;text-align:center;">
+										<br><br>
+										<br><br>
+										<br>
+										<div><p style="text-align:left;">* East Asian countries include the Andaman and Nicobar Islands, the Ashmore and Cartier Islands, Brunei, Cambodia, China, Christmas Island, the Cocos Islands, East Timor, Fiji, Indonesia, Japan, Kiribati, Laos, Malaysia, Mariana Islands, Marshall Islands, Micronesia, Mongolia, Myanmar, Nauru, North Korea, Palau, Papua New Guinea, the Philippines, Samoa, Singapore, Solomon Islands, South Korea, Taiwan, Thailand, Tonga, Tuvalu, Vanuatu, and Vietnam.
+										</p></div>
+										<div><p style="text-align:left;">
+										** South Asian countries include Afghanistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, and Sri Lanka.
+										</p></div>
+									</div>
+									-->
 									<br><br>
 									<button style= "border-radius:1.6rem;border-width:1.5rem;color: white;background-color: dodgerblue;border-style:solid;border-color: dodgerblue;font-size:20px;"id="startbutton"type="button">Continue
 									</button> 
@@ -95,7 +107,6 @@
 	document.getElementById('startbutton').onclick = function(){
 		var urlParams = new URLSearchParams(window.location.search);
 		var survey_code = urlParams.get('sc');
-		console.log("survey_code: " + survey_code)
 		// Check if 'survey_code' needs to be edited.
 		var user_email = document.getElementById('email').value.trim().replaceAll(' ', '_') + "";
 		var user_PID = String(document.getElementById('PID').value.trim().replaceAll(' ', '_')) + "";
@@ -129,7 +140,7 @@
 		alert('Ethnicity is blank');
 		}
 		else {
-		var newurl = "Main.html?userid=" + btoa(user_PID) + "&sc=" + survey_code + "&uem=" + btoa(user_email) +"&ua=" + btoa(user_age) + "&ug=" + btoa(user_gender) + "&ue=" + btoa(user_ethnicity) + "&ur=" + btoa(user_race);
+		var newurl = "Demo_Main.html?userid=" + btoa(user_PID) + "&sc=" + survey_code + "&uem=" + btoa(user_email) +"&ua=" + btoa(user_age) + "&ug=" + btoa(user_gender) + "&ue=" + btoa(user_ethnicity) + "&ur=" + btoa(user_race);
 		window.location.href = newurl;
 		}
 	}
